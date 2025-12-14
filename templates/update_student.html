@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow p-4 mx-auto" style="max-width:600px;">
+  <h3 class="text-center mb-4">Update Student</h3>
+  <form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input type="text" name="name" value="{{ student.name }}" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Roll No</label>
+      <input type="text" name="rollno" value="{{ student.rollno }}" class="form-control" required>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Year</label>
+        <input type="text" name="year" value="{{ student.year }}" class="form-control" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label class="form-label">CGPA</label>
+        <input type="text" name="cgpa" value="{{ student.cgpa }}" class="form-control" required>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Details</label>
+      <textarea name="details" class="form-control" rows="3">{{ student.details }}</textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Photo</label>
+      <input type="file" name="photo" class="form-control">
+      {% if student.photo %}
+      <small>Current photo: {{ student.photo }}</small>
+      {% endif %}
+    </div>
+    <button class="btn btn-primary w-100">Update</button>
+  </form>
+</div>
+{% endblock %}
